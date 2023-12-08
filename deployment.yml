@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commit-management-service
+  labels:
+    app: commit-management-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: commit-management-service
+  template:
+    metadata:
+      labels:
+        app: commit-management-service
+    spec:
+      containers:
+        - name: commit-management-service
+          image: gcr.io/fabled-decker-407011/commit-management-service:prod  # Replace with your Docker Hub image and tag
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "300m"
+              memory: "400Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
