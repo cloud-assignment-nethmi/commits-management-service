@@ -1,5 +1,6 @@
 package com.commitmanagementservice.commitmanagementservice.service;
 
+import com.commitmanagementservice.commitmanagementservice.dto.CommitDetailsDto;
 import com.commitmanagementservice.commitmanagementservice.dto.GitHubCommitDto;
 import com.commitmanagementservice.commitmanagementservice.model.GitHubCommit;
 import com.commitmanagementservice.commitmanagementservice.repository.GitHubCommitRepository;
@@ -37,6 +38,12 @@ public class GitHubCommitServiceImpl implements GitHubCommitService {
     @Override
     public List<GitHubCommit> getAllCommits() {
         return this.gitHubCommitRepository.findAll();
+    }
+
+    @Override
+    public CommitDetailsDto getAllCommitsByAuthorName(String authorName) {
+        List<GitHubCommit> gitHubCommits = this.gitHubCommitRepository.findAllByAuthorName(authorName.trim());
+        return CommitDetailsDto.builder().commitCount(gitHubCommits.size()).userCommitList(gitHubCommits).build();
     }
 
     private GitHubCommit generateGitHubCommitObject(GitHubCommitDto gitHubCommitDto) {
