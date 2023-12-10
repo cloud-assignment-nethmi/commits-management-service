@@ -11,4 +11,4 @@ spring:
     mongodb:
       uri: mongodb+srv://nnimesha97:9a51QdieaGVk43lR@cluster0.sdndqdm.mongodb.net/developer_iq_tracker
 
-#
+#end
