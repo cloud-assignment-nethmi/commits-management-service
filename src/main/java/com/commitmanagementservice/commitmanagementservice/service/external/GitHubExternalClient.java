@@ -28,6 +28,7 @@ public class GitHubExternalClient {
     public List<GitHubCommitDto> getCommitDetails() {
         ResponseEntity<List<GitHubCommitDto>> response = restTemplate.exchange(gitHubCommitDetailsUrl, HttpMethod.GET, null, new ParameterizedTypeReference<>() {
         });
+        log.info("getCommitDetails | commit list :{}", response.getBody());
         return response.getBody();
     }
 

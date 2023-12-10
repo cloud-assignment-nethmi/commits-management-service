@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GitHubCommitDto {
+public class CommitDto {
 
-    @JsonProperty("commit")
-    private CommitDto commitDto;
+    @JsonProperty("author")
+    private AuthorDto authorDto;
 
-
+    private String message;
 }

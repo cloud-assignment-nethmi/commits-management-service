@@ -12,17 +12,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//mongodb saves classes as documents -- creates in this manner
 @Document(collection = "github_commits")
 public class GitHubCommit {
 
     @Id
     private String id;
 
-    private String sha;
+    private String authorName;
 
-    private String nodeId;
+    private String commitMessage;
 
-    private String url;
+    private String date;
+
+    private String email;
 
 }

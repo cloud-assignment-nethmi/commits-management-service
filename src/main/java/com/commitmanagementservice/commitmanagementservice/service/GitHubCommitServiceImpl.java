@@ -41,9 +41,10 @@ public class GitHubCommitServiceImpl implements GitHubCommitService {
 
     private GitHubCommit generateGitHubCommitObject(GitHubCommitDto gitHubCommitDto) {
         return GitHubCommit.builder()
-                .sha(gitHubCommitDto.getSha())
-                .url(gitHubCommitDto.getUrl())
-                .nodeId(gitHubCommitDto.getNodeId())
+                .authorName(gitHubCommitDto.getCommitDto().getAuthorDto().getName())
+                .commitMessage(gitHubCommitDto.getCommitDto().getMessage())
+                .email(gitHubCommitDto.getCommitDto().getAuthorDto().getEmail())
+                .date(gitHubCommitDto.getCommitDto().getAuthorDto().getDate())
                 .build();
     }
 

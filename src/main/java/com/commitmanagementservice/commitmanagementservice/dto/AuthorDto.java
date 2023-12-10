@@ -1,17 +1,20 @@
 package com.commitmanagementservice.commitmanagementservice.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GitHubCommitDto {
+public class AuthorDto {
 
-    @JsonProperty("commit")
-    private CommitDto commitDto;
+    private String name;
 
+    private String email;
+
+    private String date;
 
 }
